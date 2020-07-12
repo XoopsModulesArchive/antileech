@@ -1,0 +1,17 @@
+#adm-header {float:left;width:100%;background:#e7e7e7;font-size:90%;border: 1px solid black;}
+tr.head td {text-align:center;}
+
+ul#toplist {float:left;margin-bottom:15px;text-indent: 0;}
+ul#toplist li {float:left;list-style:none;margin: 0 10px;}
+ul#toplist li:before, ul#buttontop li:after {content: "";}
+
+ul#buttonlist {float:left;width:100%;margin:0 0 0 10px;padding:0;text-indent: 0;}
+ul#buttonlist li {float:left;list-style:none;margin:0;}
+ul#buttonlist li:before, ul#buttonbar li:after {content: "";}
+ul#buttonlist li a {float:left;background: transparent url(../images/left_both.gif) no-repeat top left;padding-left:9px;}
+ul#buttonlist li a span {float:left;background: transparent url(../images/right_both.gif) no-repeat top right;padding:5px 15px 4px 6px;}
+ul#buttonlist li a:hover {background-position:0 -150px;}
+ul#buttonlist li a:hover span {background-position:100% -150px;}
+
+ul#buttonlist li.current a {background-position:0 -150px;}
+ul#buttonlist li.current a span {background-position:100% -150px;}

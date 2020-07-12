@@ -1,0 +1,40 @@
+#
+#-----------------------------------------------------------------------------
+#
+# If already exists, then skip the next line
+RewriteEngine on
+
+# Root of your site. If already exist, then skip next statment "RewriteBase ...."
+# If your site is located in DOCUMENT_ROOT then leave RewriteBase /
+# If your site is located in subdirectory of DOCUMENT_ROOT (such as /en ),then change to actual value
+# RewriteBase /en
+
+# Protection of images
+# Enable direct downloading if field REFERER is empty(usually it is search engines)
+RewriteCond %{HTTP_REFERER} !^$ 
+# Enable own site and its all subdomains
+RewriteCond %{HTTP_REFERER} !^https?://(www\.)?(subdomain1\.|subdomain2\.)?yoursite\.com/ [NC]
+# Enable direct downloading for trusted sites(white list)
+RewriteCond %{HTTP_REFERER} !^https?://(www\.)?freindssite1\.com/ [NC]
+
+# (uploads|folder1|folder2) - list of directories to protect, where antileech track access and protect images
+# (jpg|jpeg|png|gif) - list of extensions that should be protected
+RewriteRule (uploads|folder1|folder2)/(.*)\.(jpg|jpeg|png|gif)$ /modules/antileech/img\.php [NC]
+
+# Protection of files
+# Enable direct downloading if field REFERER is empty(usually it is search engines)
+RewriteCond %{HTTP_REFERER} !^$ 
+# Enable own site and its all subdomains
+RewriteCond %{HTTP_REFERER} !^https?://(www\.)?(subdomain1\.|subdomain2\.)?yoursite\.com/ [NC]
+# Enable direct downloading for trusted sites(white list)
+RewriteCond %{HTTP_REFERER} !^https?://(www\.)?freindssite1\.com/ [NC]
+
+# (uploads|folder1|folder2) - list of directories to protect, where antileech track access and protect files
+# (djvu|pdf|rar|zip) - list of extensions that should be protected
+RewriteRule (uploads|folder1|folder2)/(.*)\.(djvu|pdf|rar|zip)$ /modules/antileech/file\.php [NC]
+
+
+
+#
+#-----------------------------------------------------------------------------
+#
